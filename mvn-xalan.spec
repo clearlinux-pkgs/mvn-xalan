@@ -4,11 +4,13 @@
 #
 Name     : mvn-xalan
 Version  : j.2.7.2
-Release  : 1
+Release  : 2
 URL      : https://github.com/apache/xalan-j/archive/xalan-j_2_7_2.tar.gz
 Source0  : https://github.com/apache/xalan-j/archive/xalan-j_2_7_2.tar.gz
-Source1  : https://repo1.maven.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2.jar
-Source2  : https://repo1.maven.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2.pom
+Source1  : https://repo1.maven.org/maven2/xalan/serializer/2.7.2/serializer-2.7.2.jar
+Source2  : https://repo1.maven.org/maven2/xalan/serializer/2.7.2/serializer-2.7.2.pom
+Source3  : https://repo1.maven.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2.jar
+Source4  : https://repo1.maven.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -48,11 +50,17 @@ data components for the mvn-xalan package.
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xalan/serializer/2.7.2
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xalan/serializer/2.7.2
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.pom
 
 
 %files
@@ -60,5 +68,7 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar
+/usr/share/java/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.pom
 /usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar
 /usr/share/java/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.pom
